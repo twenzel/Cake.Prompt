@@ -1,0 +1,15 @@
+
+# User-specific files
+*.suo
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+[Oo]bj/
+
+# NuGet Packages
+*.nupkg
+**/packages/*
+
+# Cake
+[Tt]ools/
