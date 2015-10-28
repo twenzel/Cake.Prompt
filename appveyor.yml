@@ -1,6 +1,6 @@
 # Initialization
 init:
-  - git config --global core.autocrlf tru
+  - git config --global core.autocrlf true
 
 # Build script
 build_script:
@@ -15,7 +15,7 @@ environment:
     secure: 0nbVWbM2QiMez3A6xrHXF3KnFQ95AD7xOX4FPcifqipsyjiDBbjrKrMEM5/U+qtt
   MYGET_SOURCE: https://www.myget.org/F/yvschmid/
   
- # Cache
- cache:
+# Cache
+cache:
 - src\packages -> src\**\packages.config
 - tools -> tools\packages.config
