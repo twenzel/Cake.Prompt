@@ -1,3 +1,7 @@
+# Initialization
+init:
+  - git config --global core.autocrlf tru
+
 # Build script
 build_script:
   - ps: .\build.ps1 -Target AppVeyor
@@ -10,3 +14,8 @@ environment:
   MYGET_API_KEY:
     secure: 0nbVWbM2QiMez3A6xrHXF3KnFQ95AD7xOX4FPcifqipsyjiDBbjrKrMEM5/U+qtt
   MYGET_SOURCE: https://www.myget.org/F/yvschmid/
+  
+ # Cache
+ cache:
+- src\packages -> src\**\packages.config
+- tools -> tools\packages.config
