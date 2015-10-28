@@ -9,6 +9,8 @@ var configuration   = Argument<string>("configuration", "Release");
 // GLOBAL VARIABLES
 ///////////////////////////////////////////////////////////////////////////////
 var isLocalBuild        = !AppVeyor.IsRunningOnAppVeyor;
+var isPullRequest       = AppVeyor.Environment.PullRequest.IsPullRequest;
+var isTag               = AppVeyor.Environment.Repository.Tag.IsTag;
 var solutions           = GetFiles("./**/*.sln");
 var solutionPaths       = solutions.Select(solution => solution.GetDirectory());
 var version             = "0.0.1";
@@ -147,12 +149,46 @@ Task("Create-NuGet-Package")
     NuGetPack(nuGetPackSettings);
 });
 
+Task("Publish-To-MyGet")
+	.IsDependentOn("Create-NuGet-Package")
+	.WithCriteria(() => !isLocalBuild)
+	.WithCriteria(() => !isPullRequest)
+	.Does(() =>
+{
+	var apiKey = EnvironmentVariable("MYGET_API_KEY");
+	var source = EnvironmentVariable("MYGET_SOURCE");
+	var package = nugetRoot + "Cake.Prompt." + semVersion + ".nupkg";
+
+	NuGetPush(package, new NuGetPushSettings {
+		Source = source,
+		ApiKey = apiKey
+	});
+});
+
+Task("Publish-To-NuGet")
+	.IsDependentOn("Create-NuGet-Package")
+	.WithCriteria(() => !isLocalBuild)
+	.WithCriteria(() => !isPullRequest)
+	.WithCriteria(() => isTag)
+	.Does(() =>
+{
+	var apiKey = EnvironmentVariable("NUGET_API_KEY");
+	var source = EnvironmentVariable("NUGET_SOURCE");
+	var package = nugetRoot + "/Cake.Prompt." + semVersion + ".nupkg";
+
+	NuGetPush(package, new NuGetPushSettings {
+		Source = source,
+		ApiKey = apiKey
+	});
+});
+
 
 Task("Default")
-    .IsDependentOn("Create-NuGet-Package");
+	.IsDependentOn("Create-NuGet-Package");
 	
 Task("AppVeyor")
-    .IsDependentOn("Create-NuGet-Package");
+	.IsDependentOn("Publish-To-MyGet")
+	.IsDependentOn("Publish-To-NuGet");
 
 
 ///////////////////////////////////////////////////////////////////////////////

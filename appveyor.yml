@@ -4,3 +4,9 @@ build_script:
 
 # Tests
 test: off
+
+# Environment Variables
+environment:
+  MYGET_API_KEY:
+    secure: 0nbVWbM2QiMez3A6xrHXF3KnFQ95AD7xOX4FPcifqipsyjiDBbjrKrMEM5/U+qtt
+  MYGET_SOURCE: https://www.myget.org/F/yvschmid/
