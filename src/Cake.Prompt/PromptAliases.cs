@@ -16,7 +16,7 @@ namespace Cake.Common.IO
         /// Prompts the user for input.
         /// </summary>
         /// <param name="context">The context.</param>
-        /// <param name="message">The message wich is show to the user.</param>
+        /// <param name="message">The message which is shown to the user.</param>
         /// <returns>The user input.</returns>
         [CakeMethodAlias]
         public static string Prompt(this ICakeContext context, string message)
