@@ -13,7 +13,7 @@ var isPullRequest       = AppVeyor.Environment.PullRequest.IsPullRequest;
 var isTag               = AppVeyor.Environment.Repository.Tag.IsTag;
 var solutions           = GetFiles("./**/*.sln");
 var solutionPaths       = solutions.Select(solution => solution.GetDirectory());
-var version             = "0.0.1";
+var version             = "0.1.0";
 var binDir              = "./src/Cake.Prompt/bin/" + configuration;
 var nugetRoot           = "./nuget/";
 var semVersion          = isLocalBuild
