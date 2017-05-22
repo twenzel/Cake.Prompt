@@ -30,11 +30,6 @@ namespace Cake.Common.IO
                 context.Argument<bool>(InteractiveOption) :
                 false;
 
-            if (!interactive)
-            {
-                throw new CakeException("Prompt is only available in user interactive mode.");
-            }
-
             Console.Write("{0}", message);
             return Console.ReadLine();
         }
