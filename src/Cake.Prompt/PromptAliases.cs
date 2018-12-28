@@ -12,8 +12,6 @@ namespace Cake.Common.IO
     [CakeAliasCategory("Prompt")]
     public static class PromptAliases
     {
-        private const string InteractiveOption = "interactive";
-
         /// <summary>
         /// Prompts the user for input.
         /// </summary>
@@ -21,13 +19,14 @@ namespace Cake.Common.IO
         /// <param name="message">The message which is shown to the user.</param>
         /// <returns>The user input.</returns>
         [CakeMethodAlias]
-        public static string Prompt(this ICakeContext context, string message, TimeSpan timeout = default)
+        public static string Prompt(this ICakeContext context, string message, string defaultResult = "",
+            TimeSpan timeout = default)
         {
-            if (context == null) 
+            if (context == null)
                 throw new ArgumentNullException(nameof(context));
-            
+
             timeout = timeout == default ? TimeSpan.FromSeconds(30) : timeout;
-            
+
             if (timeout <= TimeSpan.Zero)
                 throw new ArgumentOutOfRangeException(nameof(timeout), "timeout must be greater than zero");
 
@@ -37,8 +36,9 @@ namespace Cake.Common.IO
             {
                 return Task.Run(() =>
                 {
-                    Console.Write("{0}", message);
-                    return Console.ReadLine();
+                    Console.Write(string.IsNullOrEmpty(defaultResult) ? message : $"{message} [{defaultResult}]");
+                    var readLine = Console.ReadLine();
+                    return string.IsNullOrEmpty(readLine) ? defaultResult : readLine;
                 }, cts.Token).GetAwaiter().GetResult();
             }
             catch (OperationCanceledException ex)
