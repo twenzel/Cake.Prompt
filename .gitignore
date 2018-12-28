@@ -13,3 +13,6 @@
 
 # Cake
 [Tt]ools/
+.vs
+
+*.DotSettings.user

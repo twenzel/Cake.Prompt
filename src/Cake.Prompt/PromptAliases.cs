@@ -26,9 +26,12 @@ namespace Cake.Common.IO
                 throw new ArgumentNullException("context");
             }
 
-            var interactive = context.HasArgument(InteractiveOption) ?
-                context.Argument<bool>(InteractiveOption) :
-                false;
+            var interactive = context.Arguments.HasArgument(InteractiveOption) 
+                              && bool.TryParse(context.Arguments.GetArgument(InteractiveOption), out var b) 
+                              && b;
+
+            if (!interactive)
+                throw new InvalidOperationException($"Cannot Prompt when cake doesn't have '{InteractiveOption}=true' argument.");
 
             Console.Write("{0}", message);
             return Console.ReadLine();
