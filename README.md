@@ -6,6 +6,10 @@ Cake AddIn that extends Cake with interactive user prompts.
 ## Usage
 
 ```c#
+    string Prompt(this ICakeContext context, string message, string defaultResult, TimeSpan timeout);
+```
+
+```c#
 NuGetPush(packagePath, new NuGetPushSettings {
     ApiKey = Prompt("Enter api key for NuGetPush:")
 });
