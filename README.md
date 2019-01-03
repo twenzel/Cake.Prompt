@@ -6,7 +6,7 @@ Cake AddIn that extends Cake with interactive user prompts.
 ## Usage
 
 ```c#
-    string Prompt(this ICakeContext context, string message, string defaultResult, TimeSpan timeout);
+string Prompt(this ICakeContext context, string message, string defaultResult, TimeSpan timeout);
 ```
 
 ```c#
