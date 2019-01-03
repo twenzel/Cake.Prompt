@@ -11,4 +11,10 @@ NuGetPush(packagePath, new NuGetPushSettings {
 });
 ```
 
+```c#
+var continue = Prompt("Do you want to continue? [Y/N]", "N").Trim().ToUpperInvariant() == "Y";
+if (continue)
+    ...
+```
+
 The `Prompt()` method throws a `TimeoutException` after the supplied timeout duration (Defaults to 30 seconds).
