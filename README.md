@@ -11,7 +11,4 @@ NuGetPush(packagePath, new NuGetPushSettings {
 });
 ```
 
-The `Prompt()` method throws an Exception if `cake.exe` is not called with `-interactive=true`:
-```
-cake.exe build.cake -interactive=true
-```
+The `Prompt()` method throws a `TimeoutException` after the supplied timeout duration (Defaults to 30 seconds).
