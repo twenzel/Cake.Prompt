@@ -6,7 +6,15 @@ Cake AddIn that extends Cake with interactive user prompts.
 ## Definition
 
 ```c#
-string Prompt(this ICakeContext context, string message, string defaultResult, TimeSpan timeout);
+/// <summary>
+/// Prompts the user for input.
+/// </summary>
+/// <param name="context">The context.</param>
+/// <param name="message">The message which is shown to the user.</param>
+/// <param name="defaultResult">Value supplied if the user simply returns with no input</param>
+/// <param name="timeout">Timeout time, defaults to 30 seconds</param>
+/// <returns>The user input.</returns>
+string Prompt(this ICakeContext context, string message, string defaultResult = default, TimeSpan timeout = default);
 ```
 
 ## Usage
