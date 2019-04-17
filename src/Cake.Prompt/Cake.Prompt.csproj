@@ -7,7 +7,7 @@
     <Copyright>Copyright © Yves Schmid 2017</Copyright>
     <Company />
     <PackageTags>cake</PackageTags>
-    <PackageProjectUrl>https://github.com/megakid/Cake.Prompt</PackageProjectUrl>
+    <PackageProjectUrl>https://github.com/cake-contrib/Cake.Prompt</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Cake.Core" Version="0.31.0" />
