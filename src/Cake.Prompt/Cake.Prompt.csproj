@@ -1,4 +1,4 @@
-﻿<Project Sdk="Microsoft.NET.Sdk">
+<Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
 	<IsPackable>true</IsPackable>
@@ -10,6 +10,6 @@
     <PackageProjectUrl>https://github.com/cake-contrib/Cake.Prompt</PackageProjectUrl>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Cake.Core" Version="0.31.0" />
+    <PackageReference Include="Cake.Core" Version="0.33.0" PrivateAssets="All" />
   </ItemGroup>
 </Project>
