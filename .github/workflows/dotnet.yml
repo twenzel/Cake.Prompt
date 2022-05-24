@@ -35,4 +35,4 @@ jobs:
     - name: Pack
       run: dotnet pack --no-build --verbosity:normal -p:Version=${{ steps.gitversion.outputs.NuGetVersionV2 }} src/Cake.Prompt/Cake.Prompt.csproj
     - name: Push
-      run: dotnet nuget push ./src/Cake.Prompt/nupkg/*.nupkg -k ${{ secrets.NUGET_KEY }} -s https://api.nuget.org/v3/index.json
+      run: dotnet nuget push ./src/Cake.Prompt/nupkg/*.nupkg -k ${{ secrets.NUGET_API_KEY }} -s https://api.nuget.org/v3/index.json
