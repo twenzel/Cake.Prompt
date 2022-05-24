@@ -1,7 +1,7 @@
 # Cake.Prompt
 Cake AddIn that extends Cake with interactive user prompts.
 
-[![Build status](https://megakid.visualstudio.com/Cake.Prompt/_apis/build/status/Cake.Prompt)](https://megakid.visualstudio.com/Cake.Prompt/_build/latest?definitionId=1)
+[![.NET](https://github.com/cake-contrib/Cake.Prompt/actions/workflows/dotnet.yml/badge.svg)](https://github.com/cake-contrib/Cake.Prompt/actions/workflows/dotnet.yml)
 
 ## Definition
 
