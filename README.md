@@ -1,7 +1,8 @@
 # Cake.Prompt
 Cake AddIn that extends Cake with interactive user prompts.
 
-[![.NET](https://github.com/cake-contrib/Cake.Prompt/actions/workflows/dotnet.yml/badge.svg)](https://github.com/cake-contrib/Cake.Prompt/actions/workflows/dotnet.yml)
+[![.NET](https://github.com/cake-contrib/Cake.Prompt/actions/workflows/dotnet.yml/badge.svg)](https://github.com/cake-contrib/Cake.Prompt/actions/workflows/dotnet.yml) 
+[![NuGet](https://img.shields.io/nuget/v/Cake.Prompt?style=flat-square)](https://www.nuget.org/packages/Cake.prompt)
 
 ## Definition
 
