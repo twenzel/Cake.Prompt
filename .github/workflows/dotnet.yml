@@ -10,7 +10,7 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - uses: actions/checkout@v2      
+    - uses: actions/checkout@v3      
     - name: Fetch tags for GitVersion
       run: git fetch --prune --tags --unshallow
     - name: Fetch master for GitVersion
@@ -21,9 +21,12 @@ jobs:
       uses: roryprimrose/rungitversion@v1.1.0
     
     - name: Setup .NET
-      uses: actions/setup-dotnet@v1
+      uses: actions/setup-dotnet@v4.0.0
       with:
-        dotnet-version: 6.0.x
+        dotnet-version: |
+          6.0.x
+          7.0.100
+          8.0.100
     - name: Restore dependencies
       run: dotnet restore src/Cake.Prompt.sln
     - name: Build
