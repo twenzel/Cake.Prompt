@@ -61,7 +61,7 @@ namespace Cake.Common.IO
         [CakeMethodAlias]
         public static string Prompt(this ICakeContext context, string message, string defaultResult, TimeSpan timeout)
         {
-            ArgumentNullException.ThrowIfNull(nameof(context));
+            ArgumentNullException.ThrowIfNull(context);
 
             timeout = timeout == default ? TimeSpan.FromSeconds(30) : timeout;
 
